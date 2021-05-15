@@ -1,19 +1,21 @@
 var firebaseConfig = {
-    apiKey: "AIzaSyBCUGt7KFdIUP-Kgya8VpZ3B4h9uP07goY",
-    authDomain: "kwitter-d58b7.firebaseapp.com",
-    projectId: "kwitter-d58b7",
-    storageBucket: "kwitter-d58b7.appspot.com",
-    messagingSenderId: "426386250237",
-    appId: "1:426386250237:web:eaf95c695cb5dd177d6194"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+  apiKey: "AIzaSyBCUGt7KFdIUP-Kgya8VpZ3B4h9uP07goY",
+  authDomain: "kwitter-d58b7.firebaseapp.com",
+  databaseURL: "https://kwitter-d58b7-default-rtdb.firebaseio.com",
+  projectId: "kwitter-d58b7",
+  storageBucket: "kwitter-d58b7.appspot.com",
+  messagingSenderId: "426386250237",
+  appId: "1:426386250237:web:eaf95c695cb5dd177d6194"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
 
   user_name = localStorage.getItem("user_name");
     document.getElementById("user_name").innerHTML = "Welcome " + user_name + "!";
 
 
-  function addRoom()
+  function room()
     {
         room_name = document.getElementById("room_name").value;
         firebase.database().ref("/").child(room_name).update({ // this is used to to storethe data in database 
@@ -38,7 +40,7 @@ childSnapshot.key;
  });});}
 getData();
 
-function redirecttoroomname(name)
+function redirecttoroomname (name)
 {
       localStorage.setItem("room_name" , name);
       window.location = "kwitter_page.html";
